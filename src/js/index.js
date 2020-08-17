@@ -7,7 +7,7 @@ window.onload = function() {
 
 function generateExcuse() {
   let randomInt;
-  let who = ["the dog", "my granma", "his turtle", "my bird"];
+  let who = ["the dog", "my granma", "his turtle", "my bird", "Firulais"];
   let what = ["eat", "pissed", "crushed", "broked"];
   let when = [
     "before the class",
@@ -18,11 +18,11 @@ function generateExcuse() {
   ];
   let excuse;
 
-  randomInt = generateRandomInt(0, 3);
+  randomInt = generateRandomInt(0, who.length);
   excuse = who[randomInt];
-  randomInt = generateRandomInt(0, 3);
+  randomInt = generateRandomInt(0, what.length);
   excuse = excuse + " " + what[randomInt];
-  randomInt = generateRandomInt(0, 4);
+  randomInt = generateRandomInt(0, when.length);
   excuse = excuse + " " + when[randomInt];
 
   document.getElementById("excuse").innerHTML = excuse;
