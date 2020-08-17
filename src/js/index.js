@@ -1,37 +1,44 @@
 import "../style/index.scss";
 
+const WHO = ["the dog", "my granma", "his turtle", "my bird", "Firulais"];
+const WHAT = ["eat", "pissed", "crushed", "broked"];
+const WHEN = [
+  "before the class",
+  "right in time",
+  "when I finished",
+  "during my lunch",
+  "while I was praying"
+];
+
 window.onload = function() {
-  console.log("Hello Rigo from the console!");
-  generateExcuse();
+  sendExcuse();
 };
 
-function generateExcuse() {
-  let randomInt;
-  let who = ["the dog", "my granma", "his turtle", "my bird", "Firulais"];
-  let what = ["eat", "pissed", "crushed", "broked"];
-  let when = [
-    "before the class",
-    "right in time",
-    "when I finished",
-    "during my lunch",
-    "while I was praying"
-  ];
-
-  let excuse;
-
-  randomInt = generateRandomInt(who.length - 1);
-  excuse = who[randomInt];
-
-  randomInt = generateRandomInt(what.length - 1);
-  excuse = excuse + " " + what[randomInt];
-
-  randomInt = generateRandomInt(when.length - 1);
-  excuse = excuse + " " + when[randomInt];
-
-  document.getElementById("excuse").innerHTML = excuse;
+/* Show the excuse message into the HTML tag  */
+function sendExcuse() {
+  document.getElementById("excuse").innerHTML = generateExcuse();
 }
 
-/**
+/* Generates a random excuse message */
+function generateExcuse() {
+  let randomInt;
+  let excuse_who;
+  let excuse_what;
+  let excuse_when;
+
+  randomInt = generateRandomInt(WHO.length - 1);
+  excuse_who = WHO[randomInt];
+
+  randomInt = generateRandomInt(WHAT.length - 1);
+  excuse_what = WHAT[randomInt];
+
+  randomInt = generateRandomInt(WHEN.length - 1);
+  excuse_when = WHEN[randomInt];
+
+  return excuse_who + " " + excuse_what + " " + excuse_when;
+}
+
+/*
  * Returns a random integer between 0 and a given integer (inclusive).
  */
 function generateRandomInt(max) {
