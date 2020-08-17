@@ -16,28 +16,24 @@ function generateExcuse() {
     "during my lunch",
     "while I was praying"
   ];
+
   let excuse;
 
-  randomInt = generateRandomInt(0, who.length);
+  randomInt = generateRandomInt(who.length - 1);
   excuse = who[randomInt];
-  randomInt = generateRandomInt(0, what.length);
+
+  randomInt = generateRandomInt(what.length - 1);
   excuse = excuse + " " + what[randomInt];
-  randomInt = generateRandomInt(0, when.length);
+
+  randomInt = generateRandomInt(when.length - 1);
   excuse = excuse + " " + when[randomInt];
 
   document.getElementById("excuse").innerHTML = excuse;
-  //console.log(randomInt);
 }
 
 /**
- * Returns a random integer between min (inclusive) and max (inclusive).
- * The value is no lower than min (or the next integer greater than min
- * if min isn't an integer) and no greater than max (or the next integer
- * lower than max if max isn't an integer).
- * Using Math.round() will give you a non-uniform distribution!
+ * Returns a random integer between 0 and a given integer (inclusive).
  */
-function generateRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+function generateRandomInt(max) {
+  return Math.round(Math.random() * max);
 }
