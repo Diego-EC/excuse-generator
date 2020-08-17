@@ -11,31 +11,27 @@ const WHEN = [
 ];
 
 window.onload = function() {
-  sendExcuse();
+  document.getElementById("excuse-one").innerHTML = generateExcuse();
+  document.getElementById("excuse-two").innerHTML = generateExcuse();
 };
 
-/* Show the excuse message into the HTML tag  */
-function sendExcuse() {
-  document.getElementById("excuse").innerHTML = generateExcuse();
-}
-
-/* Generates a random excuse message */
+/*
+ * Generates a random excuse message
+ */
 function generateExcuse() {
   let randomInt;
-  let excuse_who;
-  let excuse_what;
-  let excuse_when;
+  let excuseWho;
+  let excuseWhat;
+  let excuseWhen;
 
   randomInt = generateRandomInt(WHO.length - 1);
-  excuse_who = WHO[randomInt];
-
+  excuseWho = WHO[randomInt];
   randomInt = generateRandomInt(WHAT.length - 1);
-  excuse_what = WHAT[randomInt];
-
+  excuseWhat = WHAT[randomInt];
   randomInt = generateRandomInt(WHEN.length - 1);
-  excuse_when = WHEN[randomInt];
+  excuseWhen = WHEN[randomInt];
 
-  return excuse_who + " " + excuse_what + " " + excuse_when;
+  return excuseWho + " " + excuseWhat + " " + excuseWhen;
 }
 
 /*
